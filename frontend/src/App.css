@@ -1,0 +1,55 @@
+/**
+ * App.css
+ *
+ * @format
+ */
+
+.app {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	font-family: Arial, sans-serif;
+	overflow-x: hidden;
+}
+
+.content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #f0f0f0;
+	overflow: hidden;
+}
+
+.sidebar {
+	width: 180px;
+	background-color: #333;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px 0;
+}
+
+.icons i {
+	font-size: 20px;
+	margin: 8px;
+	cursor: pointer;
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
+	text-align: center;
+	width: 100%;
+}
+
+nav li {
+	margin: 15px 0;
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+}

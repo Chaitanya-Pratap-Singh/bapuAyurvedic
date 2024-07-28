@@ -8,6 +8,7 @@ import MainContent from "./components/MainContent";
 import Footer from "./components/Footer";
 import StudentFeedback from "./components/StudentFeedback";
 import "./App.css";
+import FacultyFeedback from "./components/FacultyFeedback";
 
 const ErrorFallback = () => {
   return (
@@ -27,6 +28,8 @@ const App = () => {
             <Routes>
               <Route exact path="/" element={<MainContent />} />
               <Route path="/student-feedback" element={<StudentFeedback />} />
+              <Route path="/faculty-feedback" element={<FacultyFeedback />} />
+
               {/* Add routes for other components as needed */}
             </Routes>
             <Footer />

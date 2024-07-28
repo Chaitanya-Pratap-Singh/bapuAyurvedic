@@ -16,7 +16,7 @@ const Sidebar = () => {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/student-feedback">Student Feedback</Link></li>
           <li><Link to="/faculty-feedback">Faculty Feedback</Link></li>
-          <li><Link to="#">Alumni Feedback</Link></li>
+          <li><Link to="/alumni-feedback">Alumni Feedback</Link></li>
           <li><Link to="#">Grievance Cell</Link></li>
         </ul>
       </nav>

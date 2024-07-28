@@ -1,19 +1,19 @@
-.main-content {
-    flex: 1;
-    padding: 20px;
-    text-align: center;
-  height: 100vh;
+/** @format */
 
-  }
-  
-  .main-content h1 {
-    color: black;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .main-content p {
-    font-size: 14px;
-    color: black;
-  }
-  
+.main-content {
+	flex: 1;
+	padding: 20px;
+	text-align: center;
+	min-height: 100vh;
+}
+
+.main-content h1 {
+	color: black;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.main-content p {
+	font-size: 14px;
+	color: black;
+}

@@ -1,55 +1,47 @@
-/**
- * App.css
- *
- * @format
- */
+/* App.css */
+body{
+	padding: 0;
+  }
 
 .app {
-	display: flex;
-	width: 100vw;
-	height: 100vh;
-	font-family: Arial, sans-serif;
-	overflow-x: hidden;
+  display: flex;
+
+  font-family: Arial, sans-serif;
+  overflow: hidden;
 }
+
+
+
+
 
 .content {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	background-color: #f0f0f0;
-	overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  overflow: hidden;
 }
 
-.sidebar {
-	width: 180px;
-	background-color: #333;
-	color: white;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 10px 0;
+.main-content {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
 }
 
-.icons i {
-	font-size: 20px;
-	margin: 8px;
-	cursor: pointer;
+.main-content h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
-nav ul {
-	list-style: none;
-	padding: 0;
-	text-align: center;
-	width: 100%;
+.main-content p {
+  font-size: 14px;
 }
 
-nav li {
-	margin: 15px 0;
-}
-
-nav a {
-	color: white;
-	text-decoration: none;
-	font-size: 14px;
+.footer {
+  padding: 5px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  font-size: 12px;
 }

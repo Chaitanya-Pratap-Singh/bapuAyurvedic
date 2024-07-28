@@ -1,70 +1,137 @@
-/**
- * StudentFeedback.css
- *
- * @format
- */
-
-.student-feedback {
-	padding: 20px;
-	background-color: #f9f9f9;
+/** @format */
+.student-feedback{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+    width: 100vw;
+}
+body {
 	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	padding: 20px;
+
 }
 
-.student-feedback h1 {
-	font-size: 24px;
+h1 {
+	text-align: center;
 	color: #333;
 }
 
-.student-feedback p {
+.container {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 	margin-bottom: 20px;
-	font-size: 16px;
-	color: #555;
 }
 
 .form-group {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 
-.form-group label {
+label {
 	display: block;
 	margin-bottom: 5px;
-	font-weight: bold;
 }
 
-.form-group input,
-.form-group select {
-	width: 100%;
-	padding: 8px;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-}
-
-.feedback-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 20px;
-}
-
-.feedback-table th,
-.feedback-table td {
-	border: 1px solid #ddd;
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+	width: 95%;
 	padding: 10px;
-	text-align: left;
-}
-
-.feedback-table th {
-	background-color: #f2f2f2;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	box-sizing: border-box;
 }
 
 button {
-	padding: 10px 20px;
 	background-color: #4caf50;
 	color: white;
+	padding: 10px 20px;
 	border: none;
-	border-radius: 4px;
+	border-radius: 3px;
 	cursor: pointer;
 }
 
 button:hover {
 	background-color: #45a049;
+}
+
+.table {
+	width: 95%;
+	border-collapse: collapse;
+}
+
+.table th,
+.table td {
+	text-align: left;
+	padding: 8px;
+	border: 1px solid #ddd;
+}
+
+.table th {
+	background-color: #f0f0f0;
+}
+
+.feedback-form {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.feedback-form > * {
+	flex: 1;
+	margin-right: 10px;
+}
+
+.feedback-form > *:last-child {
+	margin-right: 0;
+}
+
+.feedback-form label {
+	margin-bottom: 5px;
+}
+
+.feedback-form input[type="text"] {
+	width: 95%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+.feedback-form select {
+	width: 95%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+.review-table {
+	width: 95%;
+	border-collapse: collapse;
+}
+
+.review-table th,
+.review-table td {
+	text-align: left;
+	padding: 8px;
+	border: 1px solid #ddd;
+}
+
+.review-table th {
+	background-color: #f0f0f0;
+}
+
+.review-table select {
+	width: 95%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	box-sizing: border-box;
 }

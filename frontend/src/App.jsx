@@ -10,6 +10,7 @@ import StudentFeedback from "./components/StudentFeedback";
 import "./App.css";
 import FacultyFeedback from "./components/FacultyFeedback";
 import AlumniFeedback from "./components/AlumniFeedback";
+import GrievanceFeedback from "./components/GrievanceFeedback";
 
 const ErrorFallback = () => {
   return (
@@ -31,6 +32,8 @@ const App = () => {
               <Route path="/student-feedback" element={<StudentFeedback />} />
               <Route path="/faculty-feedback" element={<FacultyFeedback />} />
               <Route path="/alumni-feedback" element={<AlumniFeedback />} />
+              <Route path="/grievance-feedback" element={<GrievanceFeedback />} />
+
               
 
 

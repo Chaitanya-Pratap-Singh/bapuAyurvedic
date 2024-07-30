@@ -34,7 +34,7 @@ const AlumniFeedback = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        withCredentials: true, // if your backend requires credentials
+        withCredentials: true,
       });
 
       toast.success("Feedback Submitted Successfully");

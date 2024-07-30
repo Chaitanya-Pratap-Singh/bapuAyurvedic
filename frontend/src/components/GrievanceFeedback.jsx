@@ -25,7 +25,12 @@ function GrievanceFeedback() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post("https://bapu-ayurvedic-afte.vercel.app/api/feedback/grievanceFeedback", formData);
+      const { data } = await axios.post("https://bapu-ayurvedic-afte.vercel.app/api/feedback/grievanceFeedback", formData,{
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
       toast.success("Feedback Submitted Successfully");
       console.log(data.message);
     } catch (error) {

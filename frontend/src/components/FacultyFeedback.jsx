@@ -40,7 +40,12 @@ const FacultyFeedback = () => {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post("https://bapu-ayurvedic-afte.vercel.app/api/feedback/facultyFeedback", formData);
+      const { data } = await axios.post("https://bapu-ayurvedic-afte.vercel.app/api/feedback/facultyFeedback", formData , {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
 
       toast.success("Feedback Submitted Successfully");
       console.log(data.data);

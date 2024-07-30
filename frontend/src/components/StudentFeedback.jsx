@@ -1,161 +1,158 @@
 /** @format */
 
-import React from "react";
-import "./StudentFeedback.css";
+import React, { useState } from 'react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import './StudentFeedback.css';
 
 const StudentFeedback = () => {
-	return (
-		<div className="student-feedback">
-			<h1>Student Feedback</h1>
-			<p>Please provide your feedback below:</p>
-			<form>
-				<div className="form-group">
-					<label>Session *</label>
-					<select name="session" required>
-						<option value="">Select</option>
-						<option value="2024">2024</option>
-						<option value="2023">2023</option>
-						<option value="2022">2022</option>
-					</select>
-				</div>
+  const [formData, setFormData] = useState({
+    session: '',
+    courseName: '',
+    term: '',
+    studentName: '',
+    fatherName: '',
+    email: '',
+    mobileNo: '',
+    reviews: {
+      review1: '',
+      review2: '',
+      review3: '',
+      review4: '',
+      review5: '',
+      review6: '',
+      review7: '',
+      review8: '',
+    },
+  });
 
-				<div className="form-group">
-					<label>Course Name *</label>
-					<input type="text" name="course-name" required />
-				</div>
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name.startsWith('review')) {
+      setFormData({
+        ...formData,
+        reviews: { ...formData.reviews, [name]: value },
+      });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
 
-				<div className="form-group">
-					<label>Term *</label>
-					<input type="text" name="term" required />
-				</div>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-				<div className="form-group">
-					<label>Student Name *</label>
-					<input type="text" name="student-name" required />
-				</div>
+    try {
+      const { data } = await axios.post('/api/feedback/studentFeedback', formData);
+      toast.success('Feedback submitted successfully');
+      console.log(data.data);
+    } catch (error) {
+      toast.error('Something went wrong');
+      console.log(error);
+    }
+  };
 
-				<div className="form-group">
-					<label>Father Name *</label>
-					<input type="text" name="father-name" required />
-				</div>
+  return (
+    <div className="student-feedback">
+      <h1>Student Feedback</h1>
+      <p>Please provide your feedback below:</p>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Session *</label>
+          <select name="session" value={formData.session} onChange={handleChange} required>
+            <option value="">Select</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+          </select>
+        </div>
 
-				<div className="form-group">
-					<label>Email *</label>
-					<input type="email" name="email" required />
-				</div>
+        <div className="form-group">
+          <label>Course Name *</label>
+          <input type="text" name="courseName" value={formData.courseName} onChange={handleChange} required />
+        </div>
 
-				<div className="form-group">
-					<label>Mobile No *</label>
-					<input type="tel" name="mobile-no" required />
-				</div>
+        <div className="form-group">
+          <label>Term *</label>
+          <input type="text" name="term" value={formData.term} onChange={handleChange} required />
+        </div>
 
-				<table className="feedback-table">
-					<thead>
-						<tr>
-							<th>S NO</th>
-							<th>Question</th>
-							<th>Review</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Skill Laboratory and Simulation Lab *</td>
-							<td>
-								<select name="review1" required>
-									<option value="">Select</option>
-									<option value="available">Available</option>
-									<option value="not-available">Not Available</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Support of Faculty for any difficulty in Learning *</td>
-							<td>
-								<select name="review2" required>
-									<option value="">Select</option>
-									<option value="available">Available</option>
-									<option value="not-available">Not Available</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Clinical Posting and Exposure *</td>
-							<td>
-								<select name="review3" required>
-									<option value="">Select</option>
-									<option value="available">Available</option>
-									<option value="not-available">Not Available</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>Indoor and Outdoor Sports Facilities *</td>
-							<td>
-								<select name="review4" required>
-									<option value="">Select</option>
-									<option value="available">Available</option>
-									<option value="not-available">Not Available</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>5</td>
-							<td>Central Library Facility *</td>
-							<td>
-								<select name="review5" required>
-									<option value="">Select</option>
-									<option value="available">Available</option>
-									<option value="not-available">Not Available</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>6</td>
-							<td>Safety Measures in Campus *</td>
-							<td>
-								<select name="review6" required>
-									<option value="">Select</option>
-									<option value="available">Available</option>
-									<option value="not-available">Not Available</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>7</td>
-							<td>
-								Perceived Career in Ayurveda/Indian System of Medicine vis-a-vis
-								Modern Medicine *
-							</td>
-							<td>
-								<select name="review7" required>
-									<option value="">Select</option>
-									<option value="available">Available</option>
-									<option value="not-available">Not Available</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>8</td>
-							<td>Perceived Career Support Facilities & Programs *</td>
-							<td>
-								<select name="review8" required>
-									<option value="">Select</option>
-									<option value="available">Available</option>
-									<option value="not-available">Not Available</option>
-								</select>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+        <div className="form-group">
+          <label>Student Name *</label>
+          <input type="text" name="studentName" value={formData.studentName} onChange={handleChange} required />
+        </div>
 
-				<button type="submit">Submit</button>
-			</form>
-		</div>
-	);
+        <div className="form-group">
+          <label>Father Name *</label>
+          <input type="text" name="fatherName" value={formData.fatherName} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Email *</label>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        </div>
+
+        <div className="form-group">
+          <label>Mobile No *</label>
+          <input type="tel" name="mobileNo" value={formData.mobileNo} onChange={handleChange} required />
+        </div>
+
+        <table className="feedback-table">
+          <thead>
+            <tr>
+              <th>S NO</th>
+              <th>Question</th>
+              <th>Review</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.from({ length: 8 }, (_, i) => (
+              <tr key={i + 1}>
+                <td>{i + 1}</td>
+                <td>{getQuestion(i + 1)}</td>
+                <td>
+                  <select
+                    name={`review${i + 1}`}
+                    value={formData.reviews[`review${i + 1}`]}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select</option>
+                    <option value="available">Available</option>
+                    <option value="not-available">Not Available</option>
+                  </select>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
+
+const getQuestion = (number) => {
+  switch (number) {
+    case 1:
+      return 'Skill Laboratory and Simulation Lab *';
+    case 2:
+      return 'Support of Faculty for any difficulty in Learning *';
+    case 3:
+      return 'Clinical Posting and Exposure *';
+    case 4:
+      return 'Indoor and Outdoor Sports Facilities *';
+    case 5:
+      return 'Central Library Facility *';
+    case 6:
+      return 'Safety Measures in Campus *';
+    case 7:
+      return 'Perceived Career in Ayurveda/Indian System of Medicine vis-a-vis Modern Medicine *';
+    case 8:
+      return 'Perceived Career Support Facilities & Programs *';
+    default:
+      return '';
+  }
 };
 
 export default StudentFeedback;

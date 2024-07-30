@@ -12,7 +12,7 @@ const app = express();
 app.use(
   cors({
     origin: ["https://bapu-ayurvedic.vercel.app/"],
-    methods: ["POST"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );

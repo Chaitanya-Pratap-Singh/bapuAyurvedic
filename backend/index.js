@@ -2,11 +2,20 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import connectDB from "./db/connectDB.js";
-import feedbackRoutes from "./routes/FeedbackRoutes.js"
+import feedbackRoutes from "./routes/FeedbackRoutes.js";
+import cors from "cors";
 dotenv.config({
   path: "./.env",
 });
 const app = express();
+
+app.use(
+  cors({
+    origin: ["https://bapu-ayurvedic.vercel.app/"],
+    methods: ["POST", "GET"],
+    credentials: true,
+  })
+);
 
 connectDB()
   .then(() => {
@@ -25,6 +34,6 @@ connectDB()
 app.use(express.json());
 app.use(cookieParser());
 
-//routes 
+//routes
 
 app.use("/api/feedback", feedbackRoutes);

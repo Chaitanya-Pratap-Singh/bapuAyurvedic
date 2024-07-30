@@ -30,7 +30,12 @@ const AlumniFeedback = () => {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post("https://bapu-ayurvedic-afte.vercel.app/api/feedback/aluminiFeedback" , formData);
+      const { data } = await axios.post("https://bapu-ayurvedic-afte.vercel.app/api/feedback/aluminiFeedback" , formData.{
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true, // if your backend requires credentials
+      });
 
       toast.success("Feedback Submitted Successfully");
       console.log(data.data);

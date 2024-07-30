@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import { useState } from "react";
 import "./FacultyFeedback.css";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -40,7 +40,7 @@ const FacultyFeedback = () => {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post("/api/feedback/facultyFeedback", formData);
+      const { data } = await axios.post("https://bapu-ayurvedic-afte.vercel.app/api/feedback/facultyFeedback", formData);
 
       toast.success("Feedback Submitted Successfully");
       console.log(data.data);

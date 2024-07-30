@@ -12,6 +12,7 @@ import FacultyFeedback from "./components/FacultyFeedback";
 import AlumniFeedback from "./components/AlumniFeedback";
 import GrievanceFeedback from "./components/GrievanceFeedback";
 import { Toaster } from "react-hot-toast";
+import axios from "axios";
 const ErrorFallback = () => {
   return (
     <div>
@@ -21,31 +22,32 @@ const ErrorFallback = () => {
 };
 
 const App = () => {
+  axios.defaults.withCredentials = true;
   return (
     <>
-    <Toaster />
-    <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <Router>
-        <div className="app">
-          <Sidebar />
-          <div className="content">
-            <Routes>
-              <Route exact path="/" element={<MainContent />} />
-              <Route path="/student-feedback" element={<StudentFeedback />} />
-              <Route path="/faculty-feedback" element={<FacultyFeedback />} />
-              <Route path="/alumni-feedback" element={<AlumniFeedback />} />
-              <Route path="/grievance-feedback" element={<GrievanceFeedback />} />
+      <Toaster />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Router>
+          <div className="app">
+            <Sidebar />
+            <div className="content">
+              <Routes>
+                <Route exact path="/" element={<MainContent />} />
+                <Route path="/student-feedback" element={<StudentFeedback />} />
+                <Route path="/faculty-feedback" element={<FacultyFeedback />} />
+                <Route path="/alumni-feedback" element={<AlumniFeedback />} />
+                <Route
+                  path="/grievance-feedback"
+                  element={<GrievanceFeedback />}
+                />
 
-              
-
-
-              {/* Add routes for other components as needed */}
-            </Routes>
-            <Footer />
+                {/* Add routes for other components as needed */}
+              </Routes>
+              <Footer />
+            </div>
           </div>
-        </div>
-      </Router>
-    </ErrorBoundary>
+        </Router>
+      </ErrorBoundary>
     </>
   );
 };

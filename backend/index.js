@@ -31,6 +31,9 @@ connectDB()
     console.log("MONGO db connection failed !!", err);
   });
 
+app.get("/", (req, res) => {
+  res.send("hello gaaru!!");
+});
 app.use(express.json());
 app.use(cookieParser());
 

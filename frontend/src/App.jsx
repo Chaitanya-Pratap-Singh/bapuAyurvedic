@@ -11,7 +11,7 @@ import "./App.css";
 import FacultyFeedback from "./components/FacultyFeedback";
 import AlumniFeedback from "./components/AlumniFeedback";
 import GrievanceFeedback from "./components/GrievanceFeedback";
-
+import { Toaster } from "react-hot-toast";
 const ErrorFallback = () => {
   return (
     <div>
@@ -22,6 +22,8 @@ const ErrorFallback = () => {
 
 const App = () => {
   return (
+    <>
+    <Toaster />
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Router>
         <div className="app">
@@ -44,6 +46,7 @@ const App = () => {
         </div>
       </Router>
     </ErrorBoundary>
+    </>
   );
 };
 

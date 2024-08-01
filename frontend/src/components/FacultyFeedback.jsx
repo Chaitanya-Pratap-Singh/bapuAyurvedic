@@ -59,7 +59,19 @@ const FacultyFeedback = () => {
       );
 
       toast.success("Feedback Submitted Successfully");
-      console.log(data.data);
+      setFormData({
+        session: "",
+        courseName: "",
+        term: "",
+        facultyName: "",
+        fatherName: "",
+        email: "",
+        mobileNo: "",
+        ...questions.reduce(
+          (acc, _, index) => ({ ...acc, [`review${index + 1}`]: "" }),
+          {}
+        ),
+      })
     } catch (error) {
       toast.error("Something went Wrong !");
       console.log(error);

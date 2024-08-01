@@ -38,7 +38,21 @@ const AlumniFeedback = () => {
       });
 
       toast.success("Feedback Submitted Successfully");
-      console.log(data.data);
+      setFormData({
+        session: "",
+        courseName: "",
+        term: "",
+        alumniName: "",
+        email: "",
+        mobileNo: "",
+        review1: "",
+        review2: "",
+        review3: "",
+        review4: "",
+        review5: "",
+        review6: "",
+        review7: "",
+      })
     } catch (error) {
       toast.error("Something went Wrong !");
       console.log(error);

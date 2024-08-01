@@ -53,7 +53,25 @@ const StudentFeedback = () => {
         }
       );
       toast.success("Feedback submitted successfully");
-      console.log(data.data);
+      setFormData({
+        session: "",
+        courseName: "",
+        term: "",
+        studentName: "",
+        fatherName: "",
+        email: "",
+        mobileNo: "",
+        reviews: {
+          review1: "",
+          review2: "",
+          review3: "",
+          review4: "",
+          review5: "",
+          review6: "",
+          review7: "",
+          review8: "",
+        },
+      })
     } catch (error) {
       toast.error("Something went wrong");
       console.log(error);

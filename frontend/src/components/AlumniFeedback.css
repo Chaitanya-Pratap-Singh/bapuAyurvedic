@@ -35,7 +35,7 @@ label {
 
 input[type="text"],
 input[type="email"],
-input[type="tel"],
+input[type="number"],
 select {
 	width: 100%;
 	padding: 10px;
@@ -81,4 +81,12 @@ button:hover {
 	border: 1px solid #ddd;
 	border-radius: 3px;
 	box-sizing: border-box;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
 }

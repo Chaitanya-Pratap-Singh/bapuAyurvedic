@@ -3,7 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-// import "./GrievanceFeedback.css";
+import "./GrievanceFeedback.css";
 
 function GrievanceFeedback() {
   const [formData, setFormData] = useState({
@@ -25,12 +25,16 @@ function GrievanceFeedback() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post("https://bapu-ayurvedic-afte.vercel.app/api/feedback/grievanceFeedback", formData,{
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
+      const { data } = await axios.post(
+        "https://bapu-ayurvedic-afte.vercel.app/api/feedback/grievanceFeedback",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
       toast.success("Feedback Submitted Successfully");
       console.log(data.message);
     } catch (error) {
@@ -46,7 +50,12 @@ function GrievanceFeedback() {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Session *</label>
-          <select name="session" value={formData.session} onChange={handleChange} required>
+          <select
+            name="session"
+            value={formData.session}
+            onChange={handleChange}
+            required
+          >
             <option value="">Select</option>
             <option value="2024">2024</option>
             <option value="2023">2023</option>
@@ -54,15 +63,18 @@ function GrievanceFeedback() {
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="courseName">Course Name *</label>
-          <input
-            type="text"
-            id="courseName"
+          <label>Course Name *</label>
+          <select
             name="courseName"
             value={formData.courseName}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">Select</option>
+            <option value="Bachelor of Ayurvedic Medicine and Surgery.">
+              Bachelor of Ayurvedic Medicine and Surgery.
+            </option>
+          </select>
         </div>
         <div className="form-group">
           <label htmlFor="term">Term *</label>
@@ -111,7 +123,7 @@ function GrievanceFeedback() {
         <div className="form-group">
           <label htmlFor="mobileNo">Mobile No *</label>
           <input
-            type="text"
+            type="number"
             id="mobileNo"
             name="mobileNo"
             value={formData.mobileNo}

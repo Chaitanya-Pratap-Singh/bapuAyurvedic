@@ -1,34 +1,34 @@
 /** @format */
 
-import React, { useState } from 'react';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import './StudentFeedback.css';
+import React, { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
+import "./StudentFeedback.css";
 
 const StudentFeedback = () => {
   const [formData, setFormData] = useState({
-    session: '',
-    courseName: '',
-    term: '',
-    studentName: '',
-    fatherName: '',
-    email: '',
-    mobileNo: '',
+    session: "",
+    courseName: "",
+    term: "",
+    studentName: "",
+    fatherName: "",
+    email: "",
+    mobileNo: "",
     reviews: {
-      review1: '',
-      review2: '',
-      review3: '',
-      review4: '',
-      review5: '',
-      review6: '',
-      review7: '',
-      review8: '',
+      review1: "",
+      review2: "",
+      review3: "",
+      review4: "",
+      review5: "",
+      review6: "",
+      review7: "",
+      review8: "",
     },
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name.startsWith('review')) {
+    if (name.startsWith("review")) {
       setFormData({
         ...formData,
         reviews: { ...formData.reviews, [name]: value },
@@ -42,16 +42,20 @@ const StudentFeedback = () => {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post('https://bapu-ayurvedic-afte.vercel.app/api/feedback/studentFeedback', formData,{
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
-      toast.success('Feedback submitted successfully');
+      const { data } = await axios.post(
+        "https://bapu-ayurvedic-afte.vercel.app/api/feedback/studentFeedback",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      toast.success("Feedback submitted successfully");
       console.log(data.data);
     } catch (error) {
-      toast.error('Something went wrong');
+      toast.error("Something went wrong");
       console.log(error);
     }
   };
@@ -63,7 +67,12 @@ const StudentFeedback = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Session *</label>
-          <select name="session" value={formData.session} onChange={handleChange} required>
+          <select
+            name="session"
+            value={formData.session}
+            onChange={handleChange}
+            required
+          >
             <option value="">Select</option>
             <option value="2024">2024</option>
             <option value="2023">2023</option>
@@ -73,32 +82,72 @@ const StudentFeedback = () => {
 
         <div className="form-group">
           <label>Course Name *</label>
-          <input type="text" name="courseName" value={formData.courseName} onChange={handleChange} required />
+          <select
+            name="courseName"
+            value={formData.courseName}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option value="Bachelor of Ayurvedic Medicine and Surgery.">
+              Bachelor of Ayurvedic Medicine and Surgery.
+            </option>
+          </select>
         </div>
 
         <div className="form-group">
           <label>Term *</label>
-          <input type="text" name="term" value={formData.term} onChange={handleChange} required />
+          <input
+            type="text"
+            name="term"
+            value={formData.term}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <div className="form-group">
           <label>Student Name *</label>
-          <input type="text" name="studentName" value={formData.studentName} onChange={handleChange} required />
+          <input
+            type="text"
+            name="studentName"
+            value={formData.studentName}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <div className="form-group">
           <label>Father Name *</label>
-          <input type="text" name="fatherName" value={formData.fatherName} onChange={handleChange} required />
+          <input
+            type="text"
+            name="fatherName"
+            value={formData.fatherName}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <div className="form-group">
           <label>Email *</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <div className="form-group">
           <label>Mobile No *</label>
-          <input type="tel" name="mobileNo" value={formData.mobileNo} onChange={handleChange} required />
+          <input
+            type="number"
+            name="mobileNo"
+            value={formData.mobileNo}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <table className="feedback-table">
@@ -140,23 +189,23 @@ const StudentFeedback = () => {
 const getQuestion = (number) => {
   switch (number) {
     case 1:
-      return 'Skill Laboratory and Simulation Lab *';
+      return "Skill Laboratory and Simulation Lab *";
     case 2:
-      return 'Support of Faculty for any difficulty in Learning *';
+      return "Support of Faculty for any difficulty in Learning *";
     case 3:
-      return 'Clinical Posting and Exposure *';
+      return "Clinical Posting and Exposure *";
     case 4:
-      return 'Indoor and Outdoor Sports Facilities *';
+      return "Indoor and Outdoor Sports Facilities *";
     case 5:
-      return 'Central Library Facility *';
+      return "Central Library Facility *";
     case 6:
-      return 'Safety Measures in Campus *';
+      return "Safety Measures in Campus *";
     case 7:
-      return 'Perceived Career in Ayurveda/Indian System of Medicine vis-a-vis Modern Medicine *';
+      return "Perceived Career in Ayurveda/Indian System of Medicine vis-a-vis Modern Medicine *";
     case 8:
-      return 'Perceived Career Support Facilities & Programs *';
+      return "Perceived Career Support Facilities & Programs *";
     default:
-      return '';
+      return "";
   }
 };
 

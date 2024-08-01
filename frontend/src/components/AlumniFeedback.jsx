@@ -65,13 +65,16 @@ const AlumniFeedback = () => {
         </div>
         <div className="form-group">
           <label>Course Name *</label>
-          <input
-            type="text"
+          <select
             name="courseName"
             value={formData.courseName}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">Select</option>
+            <option value="Bachelor of Ayurvedic Medicine and Surgery.">Bachelor of Ayurvedic Medicine and Surgery.</option>
+        
+          </select>
         </div>
         <div className="form-group">
           <label>Term *</label>
@@ -106,7 +109,7 @@ const AlumniFeedback = () => {
         <div className="form-group">
           <label>Mobile No *</label>
           <input
-            type="tel"
+            type="number"
             name="mobileNo"
             value={formData.mobileNo}
             onChange={handleChange}

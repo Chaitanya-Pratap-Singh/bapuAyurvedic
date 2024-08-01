@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <div className="icons">
+      {/* <div className="icons">
         <i className="fab fa-facebook"></i>
         <i className="fab fa-instagram"></i>
         <i className="fab fa-skype"></i>
         <i className="fab fa-linkedin"></i>
-      </div>
+      </div> */}
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>

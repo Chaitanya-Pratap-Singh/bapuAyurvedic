@@ -36,7 +36,16 @@ function GrievanceFeedback() {
         }
       );
       toast.success("Feedback Submitted Successfully");
-      console.log(data.message);
+      setFormData({
+        session: "",
+        courseName: "",
+        term: "",
+        facultyName: "",
+        fatherName: "",
+        email: "",
+        mobileNo: "",
+        grievance: "",
+      })
     } catch (error) {
       toast.error("Something went Wrong !");
       console.log(error);
